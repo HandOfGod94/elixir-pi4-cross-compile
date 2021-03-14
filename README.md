@@ -1,21 +1,22 @@
 # HelloWorld
 
-**TODO: Add description**
+Cross compiling elixir has always been PITA.
 
-## Installation
+This is small example to cross-compile elixir app from MacOSX.
+It uses [earthly.dev](https://earthly.dev/)
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `hello_world` to your list of dependencies in `mix.exs`:
+### Prerequisite
+* Docker >= 19
+* earthly
 
-```elixir
-def deps do
-  [
-    {:hello_world, "~> 0.1.0"}
-  ]
-end
+### Command
+
+```shell
+# build otp release for pi as tarball
+earthly +build
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/hello_world](https://hexdocs.pm/hello_world).
+This will generate a tarball, which is compatible with raspberry pi 4.
+If you want to work with older version, tweak `--platform` value as per the `hostnamectl` info.
 
+> Note: I have not tried this with windows as docker host. It may or may not work.

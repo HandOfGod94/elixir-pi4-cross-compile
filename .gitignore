@@ -27,3 +27,4 @@ hello_world-*.tar
 /tmp
 .idea/
 *.iml
+_pi_build/
